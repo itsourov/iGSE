@@ -20,7 +20,7 @@ class UserCheckMiddleware
         if (Auth::check() && Auth::user()->role == 'user') {
             return $next($request);
         } else {
-            return redirect()->back()->with('message', 'You role is not user. Permission denied!');
+            return back()->with('message', 'You role is not user. Permission denied!');
         }
     }
 }
