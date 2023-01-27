@@ -16,10 +16,10 @@
             'name' => 'Profile',
             'routeName' => 'users.profile',
         ],
-        // [
-        //     'name' => 'tools',
-        //     'routeName' => 'other',
-        // ],
+        [
+            'name' => 'admin',
+            'routeName' => 'admin.dashboard',
+        ],
         // [
         //     'name' => 'projects',
         //     'routeName' => 'other',

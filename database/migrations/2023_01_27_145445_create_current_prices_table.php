@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('evcs', function (Blueprint $table) {
+        Schema::create('current_prices', function (Blueprint $table) {
             $table->id();
-            $table->string('evc', 8)->unique();
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->decimal('electricity_day', 8, 2);
+            $table->decimal('electricity_night', 8, 2);
+            $table->decimal('gas', 8, 2);
+            $table->decimal('standing_charge', 8, 2);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evcs');
+        Schema::dropIfExists('current_prices');
     }
 };
