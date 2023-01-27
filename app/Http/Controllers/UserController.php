@@ -38,7 +38,7 @@ class UserController extends Controller
 
         // Create User
         $user = User::create($formFields);
-        event(new Registered($user));
+
 
         // Login
         auth()->login($user);
@@ -48,7 +48,7 @@ class UserController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-
+        event(new Registered($user));
 
         return redirect()->intended(RouteServiceProvider::HOME)->with('message', 'User created and logged in');
     }
