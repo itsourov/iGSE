@@ -51,6 +51,9 @@
                 <span class="sr-only">Info</span>
                 <div>
                     <span class="font-medium">For now, this Admin feature is implimented:</span>
+                    <span class="font-medium">Default Admin credentials: Username: <span class="text-red-500">
+                            gse@shangrila.gov.un</span>
+                        Password:<span class="text-red-500"> gse@energy</span></span>
                     <ul class="mt-1.5 ml-4 list-disc list-inside">
                         <li>You can change the current price for many things</li>
 
