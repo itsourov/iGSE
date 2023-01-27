@@ -1,2 +1,2 @@
-<x-app pageTitle="Login">
+<x-app pageTitle="Home">
 </x-app>

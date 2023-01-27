@@ -16,14 +16,14 @@
             'name' => 'Profile',
             'routeName' => 'users.profile',
         ],
-        [
-            'name' => 'tools',
-            'routeName' => 'other',
-        ],
-        [
-            'name' => 'projects',
-            'routeName' => 'other',
-        ],
+        // [
+        //     'name' => 'tools',
+        //     'routeName' => 'other',
+        // ],
+        // [
+        //     'name' => 'projects',
+        //     'routeName' => 'other',
+        // ],
     ];
 @endphp
 
