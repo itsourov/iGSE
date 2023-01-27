@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         $user->sendEmailVerificationNotification();
 
-        return back()->with('message', 'Email verified!');
+        return back()->with('message', 'Email sent!');
     })->name('users.verification-emai');
 });
 
