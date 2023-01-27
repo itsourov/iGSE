@@ -1,5 +1,8 @@
 <x-app pageTitle="Profile">
     <div class="container mx-auto mt-10">
+        @if (!$user->hasVerifiedEmail())
+            @include('inc.email-confirmation-alert')
+        @endif
 
         <div class="relative overflow-x-auto">
             <table class="w-full text-sm text-left rounded shadow text-gray-500 dark:text-gray-400">

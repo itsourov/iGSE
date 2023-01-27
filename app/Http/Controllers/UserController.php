@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Evc;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -37,6 +38,7 @@ class UserController extends Controller
 
         // Create User
         $user = User::create($formFields);
+        event(new Registered($user));
 
         // Login
         auth()->login($user);
