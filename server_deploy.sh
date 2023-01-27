@@ -15,7 +15,7 @@ echo "Deploying application ..."
     # cp .env.example .env
     # php artisan key:gen
     # Migrate database
-    php artisan migrate:fresh --seed
+    php artisan migrate --force
  
     # # Note: If you're using queue workers, this is the place to restart them.
     # # ...
