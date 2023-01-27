@@ -30,7 +30,7 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6',
             'address' => ['required'],
             'bedroom_count' => ['required'],
-            'evc_code' =>  ['required', 'min:8', 'max:8'],
+            'evc_code' =>  ['required', Rule::exists('evcs', 'evc')->where('user_id', null), 'min:8', 'max:8'],
         ]);
 
         // Hash Password

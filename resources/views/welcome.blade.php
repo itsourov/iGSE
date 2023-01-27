@@ -56,6 +56,12 @@
                         Password:<span class="text-red-500"> gse@energy</span></span>
                     <ul class="mt-1.5 ml-4 list-disc list-inside">
                         <li>You can change the current price for many things</li>
+                        <li>Valid evc codes are: <span class="text-red-500">
+                                XTX2GZAD</span>, <span class="text-red-500">
+                                NDA7SY2V</span>, <span class="text-red-500">
+                                RVA7DZ2D</span>, <span class="text-red-500">
+                                DM8LEESR</span>. These are valid by default. but when a user uses one , that one becomes
+                            unavailable</li>
 
                     </ul>
                 </div>

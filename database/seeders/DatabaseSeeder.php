@@ -22,5 +22,18 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('gse@energy'),
             'role' => 'admin',
         ]);
+
+        \App\Models\Evc::create([
+            'evc' => 'XTX2GZAD',
+        ]);
+        \App\Models\Evc::create([
+            'evc' => 'NDA7SY2V',
+        ]);
+        \App\Models\Evc::create([
+            'evc' => 'RVA7DZ2D',
+        ]);
+        \App\Models\Evc::create([
+            'evc' => 'DM8LEESR',
+        ]);
     }
 }
