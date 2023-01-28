@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MeterReading;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class MeterReadingController extends Controller
 {
@@ -25,7 +26,7 @@ class MeterReadingController extends Controller
     public function create()
     {
         return view('addMeterReadings', [
-            'readings' => MeterReading::latest()->get(),
+            'readings' => MeterReading::latest('date')->get(),
         ]);
     }
 
@@ -41,7 +42,7 @@ class MeterReadingController extends Controller
             'electricity_day' => ['required', 'numeric'],
             'electricity_night' => ['required', 'numeric'],
             'gas' => ['required', 'numeric'],
-            'date' => ['required', 'date']
+            'date' => ['required', 'date', Rule::unique('meter_readings', 'date')]
 
 
         ]);
