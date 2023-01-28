@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CurrentPrice;
 use App\Models\MeterReading;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -27,6 +28,7 @@ class MeterReadingController extends Controller
     {
         return view('addMeterReadings', [
             'readings' => MeterReading::latest('date')->get(),
+            'rate' => CurrentPrice::latest()->first(),
         ]);
     }
 

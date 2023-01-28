@@ -136,7 +136,15 @@
                                     @if ($loop->last)
                                         No bill
                                     @else
-                                        Will count
+                                        @php
+                                            if ($rate) {
+                                                $bill = ($reading->electricity_day - $next->electricity_day) * $rate->electricity_day + ($reading->electricity_night - $next->electricity_night) * $rate->electricity_night + ($reading->gas - $next->gas) * $rate->gas + $rate->standing_charge;
+                                            } else {
+                                                $bill = 'rate is not set by admin';
+                                            }
+                                            
+                                        @endphp
+                                        {{ $bill }}
                                     @endif
 
                                 </td>
