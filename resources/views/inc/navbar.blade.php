@@ -20,10 +20,10 @@
             'name' => 'admin',
             'routeName' => 'admin.dashboard',
         ],
-        // [
-        //     'name' => 'projects',
-        //     'routeName' => 'other',
-        // ],
+        [
+            'name' => 'submit new meter readings',
+            'routeName' => 'meaterReadings.add',
+        ],
     ];
 @endphp
 

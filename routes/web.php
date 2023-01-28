@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CurrentPriceController;
+use App\Http\Controllers\MeterReadingController;
 use App\Http\Controllers\PasswordController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
@@ -60,6 +61,8 @@ Route::group(['middleware' => ['auth']], function () {
 Route::group(['middleware' => ['user']], function () {
 
     Route::get('/profile', [UserController::class, 'profile'])->name('users.profile');
+    Route::get('/meater_readings/add', [MeterReadingController::class, 'create'])->name('meaterReadings.add');
+    Route::post('/meater_readings/add', [MeterReadingController::class, 'store']);
 });
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {

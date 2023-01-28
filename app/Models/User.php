@@ -49,4 +49,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Evc::class, 'user_id');
     }
+    public function readings()
+    {
+        return $this->hasMany(MeterReading::class, 'user_id');
+    }
 }

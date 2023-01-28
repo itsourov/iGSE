@@ -43,8 +43,9 @@ class UserController extends Controller
         // Login
         auth()->login($user);
 
-        Evc::create([
-            'evc' => request('evc_code'),
+        $evc = Evc::where('evc', request('evc_code'))->first();
+        $evc->update([
+
             'user_id' => auth()->id(),
         ]);
 
