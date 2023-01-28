@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('meter_readings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->date('date')->unique();
+            $table->date('date');
             $table->decimal('electricity_day');
             $table->decimal('electricity_night');
             $table->decimal('gas');

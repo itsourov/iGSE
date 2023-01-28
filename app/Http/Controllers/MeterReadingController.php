@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CurrentPrice;
 use App\Models\MeterReading;
+use App\Rules\OldShouldBeGreater;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -27,7 +28,7 @@ class MeterReadingController extends Controller
     public function create()
     {
         return view('addMeterReadings', [
-            'readings' => MeterReading::latest('date')->get(),
+            'readings' => MeterReading::where('user_id', auth()->id())->latest('date')->get(),
             'rate' => CurrentPrice::latest()->first(),
         ]);
     }
@@ -40,12 +41,16 @@ class MeterReadingController extends Controller
      */
     public function store(Request $request)
     {
+        // dd(MeterReading::where('user_id', auth()->id())->latest()->first()->electricity_day);
         $formFields = request()->validate([
-            'electricity_day' => ['required', 'numeric'],
-            'electricity_night' => ['required', 'numeric'],
-            'gas' => ['required', 'numeric'],
-            'date' => ['required', 'date', Rule::unique('meter_readings', 'date')]
 
+            'date' => ['required', 'date', Rule::unique('meter_readings', 'date')->where('user_id', auth()->id())],
+
+
+            'electricity_night' => ['required', 'numeric', new OldShouldBeGreater()],
+            'gas' => ['required', 'numeric', new OldShouldBeGreater()],
+
+            'electricity_day' => ['required', 'numeric', new OldShouldBeGreater()],
 
         ]);
         $formFields['user_id'] = auth()->id();
