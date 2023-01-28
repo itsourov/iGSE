@@ -90,13 +90,16 @@
                                 Gas (Reading) in kWh
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Date Difference (days)
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Bill
                             </th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($readings as $reading)
+                        @foreach ($readings as $index => $reading)
                             <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
                                 id="reading_{{ $reading->id }}">
                                 <th scope="row"
@@ -114,9 +117,26 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     @if ($loop->last)
+                                        Not applied
+                                    @else
+                                        @php
+                                            
+                                            $next = $readings->get(++$index);
+                                            
+                                            $datetime1 = new DateTime($next->date);
+                                            $datetime2 = new DateTime($reading->date);
+                                            $interval = $datetime1->diff($datetime2);
+                                            $days = $interval->format('%a');
+                                        @endphp
+                                        {{ $days }}
+                                    @endif
+
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if ($loop->last)
                                         No bill
                                     @else
-                                        Bill here
+                                        Will count
                                     @endif
 
                                 </td>
