@@ -28,7 +28,7 @@
                 <div>
                     <span class="font-medium">For now, this feature is implimented:</span>
                     <ul class="mt-1.5 ml-4 list-disc list-inside">
-                        <li>You can register as a new customer (with validation)</li>
+                        <li>You can register as a new customer (with validation).</li>
                         <li>You can login (with validation)</li>
                         <li>You cn verify email and use "forgot password" system </li>
                         <li>Register and log in page are only for non logged-in users. logged in user cant access it
