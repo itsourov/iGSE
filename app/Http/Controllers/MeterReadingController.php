@@ -49,7 +49,7 @@ class MeterReadingController extends Controller
 
         $newReading =  MeterReading::create($formFields);
 
-        return redirect(route('meaterReadings.add') . '/#' . $newReading->id)->with('message', 'Reading submitted');
+        return redirect(route('meaterReadings.add') . '/#reading_' . $newReading->id)->with('message', 'Reading submitted');
     }
 
     /**

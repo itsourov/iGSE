@@ -97,7 +97,8 @@
                     <tbody>
 
                         @foreach ($readings as $reading)
-                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700"
+                                id="reading_{{ $reading->id }}">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     {{ $reading->date }}
