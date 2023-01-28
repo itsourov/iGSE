@@ -49,7 +49,7 @@ class UserController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-        event(new Registered($user));
+
 
         return redirect()->intended(RouteServiceProvider::HOME)->with('message', 'User created and logged in');
     }
